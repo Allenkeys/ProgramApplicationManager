@@ -19,6 +19,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+await app.SeedDatabase();
+
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
