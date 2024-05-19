@@ -21,7 +21,8 @@ namespace ProgramApplicationManager.Persistence
 
             modelBuilder.Entity<Application>()
                 .HasPartitionKey(x => x.ProgramId)
-            .ToContainer("applications");
+                .ToContainer("applications");
+
             base.OnModelCreating(modelBuilder);
         }
 

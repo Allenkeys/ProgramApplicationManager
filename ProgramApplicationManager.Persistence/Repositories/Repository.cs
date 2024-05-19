@@ -23,6 +23,20 @@ namespace ProgramApplicationManager.Persistence.Repositories
             return entity;
         }
 
+        public void Delete(T entity)
+        {
+            _dbContext?.Set<T>().Remove(entity);
+            _dbContext.SaveChanges();
+        }
+
+        public T Update(T entity)
+        {
+            _dbContext?.Set<T>().Update(entity);
+            _dbContext.SaveChanges();
+            return entity;     
+        }
+
+
         public IQueryable<T> FindBy(Expression<Func<T, bool>> predicate, bool trackChanges = true)
         {
             var result = trackChanges

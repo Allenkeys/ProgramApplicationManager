@@ -12,5 +12,7 @@ namespace ProgramApplicationManager.Persistence.Repositories
         IQueryable<T> GetAll(bool trackChanges);
         T Create(T entity);
         IQueryable<T> FindBy(Expression<Func<T, bool>> predicate, bool trackChanges = true);
+        void Delete(T entity);
+        T Update(T entity);
     }
 }
