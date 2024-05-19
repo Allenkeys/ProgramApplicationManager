@@ -13,6 +13,7 @@ namespace ProgramApplicationManager.API.Extensions
         {
             services.AddScoped<IUnitOfWork, UnitOfWork<ApplicationDbContext>>();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IProgramService, ProgramService>();
 
             return await Task.FromResult(services);
         }
