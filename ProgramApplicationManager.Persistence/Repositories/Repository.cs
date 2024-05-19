@@ -1,9 +1,14 @@
-﻿using System.Linq.Expressions;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Text;
+using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
 namespace ProgramApplicationManager.Persistence.Repositories
 {
-    public class Repository<T> : IRepository<T> where T : class
+    internal class Repository<T> : IRepository<T> where T : class
     {
         private readonly DbContext _dbContext;
         public Repository(DbContext dbContext)
@@ -18,7 +23,7 @@ namespace ProgramApplicationManager.Persistence.Repositories
             return entity;
         }
 
-        public IQueryable<T> FindBy(Expression<Func<T, bool>> predicate, bool trackChanges)
+        public IQueryable<T> FindBy(Expression<Func<T, bool>> predicate, bool trackChanges = true)
         {
             var result = trackChanges
                 ? _dbContext.Set<T>().Where(predicate)

@@ -10,9 +10,4 @@
     <ProjectReference Include="..\ProgramApplicationManager.Persistence\ProgramApplicationManager.Persistence.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Interfaces\" />
-    <Folder Include="Implements\" />
-  </ItemGroup>
-
 </Project>

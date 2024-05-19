@@ -1,11 +1,22 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ProgramApplicationManager.Domain.Entities;
 using ProgramApplicationManager.Persistence;
+using ProgramApplicationManager.Persistence.Repositories;
+using ProgramApplicationManager.Services.Implements;
+using ProgramApplicationManager.Services.Interfaces;
 
 namespace ProgramApplicationManager.API.Extensions
 {
     public static class ServiceContainer
     {
+        public static async Task<IServiceCollection> InjectServices(this IServiceCollection services)
+        {
+            services.AddScoped<IUnitOfWork, UnitOfWork<ApplicationDbContext>>();
+            services.AddScoped<IUserService, UserService>();
+
+            return await Task.FromResult(services);
+        }
+
         public static void AddDatabase(this IServiceCollection services, IConfiguration config)
         {
             services.AddDbContext<ApplicationDbContext>(options =>
