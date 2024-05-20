@@ -7,7 +7,7 @@ namespace ProgramApplicationManager.Domain.Entities
         [Key]
         public string ApplicationId { get; set; } = Guid.NewGuid().ToString();
         public string ProgramId { get; set; }
-        public string CandidateId { get; set; }
+        public string CandidateId { get; set; } = Guid.NewGuid().ToString();
         public List<Answer> PersonalInfoAnswers { get; set; }
         public List<Answer> AdditionalInfoAnswers { get; set; }
     }
